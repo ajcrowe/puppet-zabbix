@@ -1,0 +1,8 @@
+name         'ajcrowe-zabbix'
+version      '0.0.1'
+source       'git://github.com/ajcrowe/puppet-zabbix.git'
+author       'ajcrowe'
+summary      'Manage Zabbix agent and server via Puppet'
+description  'Manage Zabbix agent and server via Puppet'
+license      'Apache License, Version 2.0'
+project_page 'https://github.com/ajcrowe/puppet-zabbix'
