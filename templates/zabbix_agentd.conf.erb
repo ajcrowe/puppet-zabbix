@@ -1,17 +1,22 @@
-Server=<%= $server_host %>
-ServerPort=<%= $server_port %>
-Hostname=<%= fqdn %>
-StartAgents=<%= $num_agents %>
+Server=<%= @server_host %>
+ServerPort=<%= @server_port %>
+Hostname=<%= @fqdn %>
+StartAgents=<%= @num_agents %>
 #RefreshActiveChecks=120
 #DisableActive=1
-DebugLevel=<%= $debug_level %>
-PidFile=<%= $pidfile %>
-LogFile=<%= $logfile %>
+DebugLevel=<%= @debug_level %>
+PidFile=<%= @pidfile %>
+LogFile=<%= @logfile %>
 Timeout=3
 <% if $agent_listen -%>
-ListenPort=<%= $agent_listen_port %>
-ListenIP=<%= $agent_listen_ip %>
+ListenPort=<%= @agent_listen_port %>
+ListenIP=<%= @agent_listen_ip %>
 <% end -%>
-<% if $remote_cmd -%>
+<% if @remote_cmd -%>
 EnableRemoteCommands=1
+<% end -%>
+<% unless @custom_params == 'undef' -%>
+<% @custom_params.each do |param| -%>
+UserParameter=<%= @param %>
+<% end -%>
 <% end -%>
