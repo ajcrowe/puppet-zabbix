@@ -19,8 +19,8 @@ class zabbix::params {
     'RedHat': {
       $agent_service       = 'zabbix-agent'
       $agent_config        = '/etc/zabbix/zabbix_agentd.conf'
-      $agent_pid           = '/var/run/zabbix-agent/zabbix_agentd.pid'
-      $agent_log           = '/var/log/zabbix-agent/zabbix_agentd.log'
+      $agent_pid           = '/var/run/zabbix/zabbix_agentd.pid'
+      $agent_log           = '/var/log/zabbix/zabbix_agentd.log'
       $server_service      = 'zabbix-server'
       $server_config       = '/etc/zabbix/zabbix_server.conf'
       $server_db_config    = '/etc/zabbix/zabbix.conf.php'
