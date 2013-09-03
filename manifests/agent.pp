@@ -9,7 +9,7 @@ class zabbix::agent (
     $listen_host   = '0.0.0.0',
     $remote_cmd    = false,
     $custom_params = undef,
-    $config_file   = $zabbix::params::agent_conf,
+    $config_file   = $zabbix::params::agent_config,
     $pid_file      = $zabbix::params::agent_pid,
     $log_file      = $zabbix::params::agent_log
   ) inherits zabbix::params {
