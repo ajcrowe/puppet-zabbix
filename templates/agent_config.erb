@@ -3,12 +3,12 @@ ServerPort=<%= @server_port %>
 Hostname=<%= @fqdn %>
 StartAgents=<%= @num_agents %>
 DebugLevel=<%= @debug_level %>
-PidFile=<%= @pidfile %>
-LogFile=<%= @logfile %>
+PidFile=<%= @pid_file %>
+LogFile=<%= @log_file %>
 Timeout=3
 <% if $agent_listen -%>
-ListenPort=<%= @agent_listen_port %>
-ListenIP=<%= @agent_listen_ip %>
+ListenPort=<%= @listen_port %>
+ListenIP=<%= @listen_ip %>
 <% end -%>
 <% if @remote_cmd -%>
 EnableRemoteCommands=1
