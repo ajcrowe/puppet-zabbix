@@ -10,7 +10,7 @@ class zabbix::server (
     $db_username    = 'zabbix',
     $db_password    = 'zabbix',
     $db_port        = '0',
-    $use_zabbix_v2  = $zabbix::params::use_v2,
+    $use_zabbix_v2  = $zabbix::params::use_v2
   ) inherits zabbix::params {
 
   case $db_type {
