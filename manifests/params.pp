@@ -14,7 +14,6 @@ class zabbix::params {
       $server_pid          = '/var/run/zabbix/zabbix_server.pid'
       $server_log          = '/var/log/zabbix-server/zabbix_server.log'
       $server_db_type      = 'mysql'
-      $use_v2              = false
     }
     'RedHat': {
       $agent_service       = 'zabbix-agent'
@@ -27,8 +26,7 @@ class zabbix::params {
       $server_pid          = '/var/run/zabbix/zabbix_server.pid'
       $server_log          = '/var/log/zabbix-server/zabbix_server.log'
       $server_db_type      = 'mysql'
-      $use_v2              = false
-      if $use_zabbix_v2 {
+      if $use_v2 {
         $agent_pkg           = 'zabbix20-agent'
         $server_pkg_stub     = 'zabbix20-server'
         $server_web_pkg_stub = 'zabbix20-web'
