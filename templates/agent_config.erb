@@ -13,7 +13,7 @@ ListenIP=<%= @agent_listen_ip %>
 <% if @remote_cmd -%>
 EnableRemoteCommands=1
 <% end -%>
-<% unless @custom_params == 'undef' -%>
+<% if @custom_params -%>
 <% @custom_params.each do |param| -%>
 UserParameter=<%= @param %>
 <% end -%>
