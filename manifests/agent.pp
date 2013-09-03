@@ -11,7 +11,8 @@ class zabbix::agent (
     $custom_params = undef,
     $config_file   = $zabbix::params::agent_config,
     $pid_file      = $zabbix::params::agent_pid,
-    $log_file      = $zabbix::params::agent_log
+    $log_file      = $zabbix::params::agent_log,
+    $use_zabbix_v2 = $zabbix::params::use_v2
   ) inherits zabbix::params {
 
   package { $zabbix::params::agent_pkg:
