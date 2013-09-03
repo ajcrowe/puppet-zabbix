@@ -49,13 +49,13 @@ class zabbix::server (
 
   file { $config_file:
     ensure => present,
-    content => template("$module_name/$config_file.erb"),
+    content => template("$module_name/server_config.erb"),
     require => Package[$pkg_name],
   }
 
   file { $config_file:
     ensure => present,
-    content => template("$module_name/$db_config_file.erb"),
+    content => template("$module_name/server_web_db_config.erb"),
     require => Package[$frontend_pkg_name],
   }
 }
