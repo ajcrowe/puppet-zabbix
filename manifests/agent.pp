@@ -12,10 +12,15 @@ class zabbix::agent (
     $config_file   = $zabbix::params::agent_config,
     $pid_file      = $zabbix::params::agent_pid,
     $log_file      = $zabbix::params::agent_log,
+    $pkg_name      = $zabbix::params::agent_pkg,
     $use_v2        = undef
   ) inherits zabbix::params {
 
-  package { $zabbix::params::agent_pkg:
+  if $::osfamily == 'RedHat' and $use_v2 == true {
+    $pkg_name = $zabbix::params::agent_v2_pkg
+  }
+
+  package { $pkg_name:
     ensure => $pkg_ensure,
   }
 
@@ -35,5 +40,4 @@ class zabbix::agent (
     content => template("$module_name/agent_config.erb"),
     require => Package[$zabbix::params::agent_pkg],
   }
-
 }

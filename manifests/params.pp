@@ -26,18 +26,12 @@ class zabbix::params {
       $server_pid          = '/var/run/zabbix/zabbix_server.pid'
       $server_log          = '/var/log/zabbix-server/zabbix_server.log'
       $server_db_type      = 'mysql'
-      if $use_v2 {
-        $agent_pkg           = 'zabbix20-agent'
-        $server_pkg_stub     = 'zabbix20-server'
-        $server_web_pkg_stub = 'zabbix20-web'
-      }
-      else {
-        $agent_pkg           = 'zabbix-agent'
-        $server_pkg_stub     = 'zabbix-server'
-        $server_web_pkg_stub = 'zabbix-web'
-      }
-        
-      
+      $agent_v2_pkg           = 'zabbix20-agent'
+      $server_v2_pkg_stub     = 'zabbix20-server'
+      $server_web_v2_pkg_stub = 'zabbix20-web'
+      $agent_pkg           = 'zabbix-agent'
+      $server_pkg_stub     = 'zabbix-server'
+      $server_web_pkg_stub = 'zabbix-web'
     }
     default: {
       fail("OS not supported: ${::osfamily}")
