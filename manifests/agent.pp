@@ -40,6 +40,6 @@ class zabbix::agent (
     group  => root,
     mode   => 0640,
     content => template("$module_name/agent_config.erb"),
-    require => Package[$zabbix::params::agent_pkg],
+    require => Package[$pkg_name],
   }
 }
