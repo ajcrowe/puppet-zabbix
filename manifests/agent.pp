@@ -12,12 +12,14 @@ class zabbix::agent (
     $config_file   = $zabbix::params::agent_config,
     $pid_file      = $zabbix::params::agent_pid,
     $log_file      = $zabbix::params::agent_log,
-    $pkg_name      = $zabbix::params::agent_pkg,
     $use_v2        = undef
   ) inherits zabbix::params {
 
   if $::osfamily == 'RedHat' and $use_v2 == true {
     $pkg_name = $zabbix::params::agent_v2_pkg
+  }
+  else {
+    $pkg_name = $zabbix::params::agent_pkg
   }
 
   package { $pkg_name:
