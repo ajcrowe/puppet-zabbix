@@ -16,7 +16,7 @@ class zabbix::agent (
   ) inherits zabbix::params {
 
   if $::osfamily == 'RedHat' and $use_v2 == true {
-    package { $zabbix::params::agent_pkg: 
+    package { [ $zabbix::params::agent_pkg, zabbix ]: 
       ensure => purged, 
       before => Package["$pkg_name"]
     }
