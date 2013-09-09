@@ -16,7 +16,6 @@ class zabbix::params {
       $server_db_type      = 'mysql'
     }
     'RedHat': {
-      $common_pkg          = 'zabbix'
       $agent_service       = 'zabbix-agent'
       $agent_config        = '/etc/zabbix/zabbix_agentd.conf'
       $agent_pid           = '/var/run/zabbix/zabbix_agentd.pid'
