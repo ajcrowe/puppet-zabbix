@@ -30,7 +30,7 @@ class zabbix::params {
       $agent_pkg           = 'zabbix-agent'
       $server_pkg_stub     = 'zabbix-server'
       $server_web_pkg_stub = 'zabbix-web'
-      $common_pkg          = 'zabbix20'
+      $common_pkg          = 'zabbix'
       $agent_v2_pkg           = 'zabbix20-agent'
       $server_v2_pkg_stub     = 'zabbix20-server'
       $server_web_v2_pkg_stub = 'zabbix20-web'
