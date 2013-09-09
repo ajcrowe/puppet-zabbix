@@ -16,13 +16,19 @@ class zabbix::agent (
   ) inherits zabbix::params {
 
   if $::osfamily == 'RedHat' and $use_v2 == true {
-    package { [ $zabbix::params::agent_pkg, zabbix ]: 
+    package { [ $zabbix::params::agent_pkg, $zabbix::params::common_pkg ]: 
       ensure => purged, 
       before => Package["$pkg_name"]
     }
     $pkg_name = $zabbix::params::agent_v2_pkg
   }
   else {
+    if $::osfamily == 'RedHat' {
+      package { [ $zabbix::params::agent_v2_pkg, $zabbix::params::common_v2_pkg ]: 
+        ensure => purged, 
+        before => Package["$pkg_name"]
+      }
+    }
     $pkg_name = $zabbix::params::agent_pkg
   }
 

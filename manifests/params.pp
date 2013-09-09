@@ -16,6 +16,7 @@ class zabbix::params {
       $server_db_type      = 'mysql'
     }
     'RedHat': {
+      $common_pkg          = 'zabbix'
       $agent_service       = 'zabbix-agent'
       $agent_config        = '/etc/zabbix/zabbix_agentd.conf'
       $agent_pid           = '/var/run/zabbix/zabbix_agentd.pid'
@@ -26,12 +27,14 @@ class zabbix::params {
       $server_pid          = '/var/run/zabbix/zabbix_server.pid'
       $server_log          = '/var/log/zabbix-server/zabbix_server.log'
       $server_db_type      = 'mysql'
-      $agent_v2_pkg           = 'zabbix20-agent'
-      $server_v2_pkg_stub     = 'zabbix20-server'
-      $server_web_v2_pkg_stub = 'zabbix20-web'
       $agent_pkg           = 'zabbix-agent'
       $server_pkg_stub     = 'zabbix-server'
       $server_web_pkg_stub = 'zabbix-web'
+      $common_pkg          = 'zabbix20'
+      $agent_v2_pkg           = 'zabbix20-agent'
+      $server_v2_pkg_stub     = 'zabbix20-server'
+      $server_web_v2_pkg_stub = 'zabbix20-web'
+      $common_v2_pkg          = 'zabbix20'
     }
     default: {
       fail("OS not supported: ${::osfamily}")
