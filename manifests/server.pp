@@ -38,7 +38,7 @@ class zabbix::server (
     enable     => true,
     hasrestart => true,
     hasstatus  => true,
-    subscribe  => File[$config_file],
+    subscribe  => File["$config_file"],
   }
 
   File {
@@ -50,12 +50,12 @@ class zabbix::server (
   file { $config_file:
     ensure => present,
     content => template("$module_name/server_config.erb"),
-    require => Package[$pkg_name],
+    require => Package["$pkg_name"],
   }
 
   file { $config_file:
     ensure => present,
     content => template("$module_name/server_web_db_config.erb"),
-    require => Package[$frontend_pkg_name],
+    require => Package["$frontend_pkg_name"],
   }
 }

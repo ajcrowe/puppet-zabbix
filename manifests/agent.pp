@@ -31,7 +31,7 @@ class zabbix::agent (
     enable     => true,
     hasrestart => true,
     hasstatus  => true,
-    subscribe  => File[$config_file],
+    subscribe  => File["$config_file"],
   }
 
   file { $config_file:
@@ -40,6 +40,6 @@ class zabbix::agent (
     group  => root,
     mode   => 0640,
     content => template("$module_name/agent_config.erb"),
-    require => Package[$pkg_name],
+    require => Package["$pkg_name"],
   }
 }
